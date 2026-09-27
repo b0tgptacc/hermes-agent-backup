@@ -1,0 +1,106 @@
+model:
+  default: gpt-5.6-sol
+  provider: openai-codex
+  base_url: https://chatgpt.com/backend-api/codex
+agent:
+  max_turns: 300
+  reasoning_effort: high
+terminal:
+  cwd: .
+  timeout: 300
+delegation:
+  max_concurrent_children: 3
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+approvals:
+  mode: smart
+security:
+  redact_secrets: true
+_config_version: 34
+platform_toolsets:
+  cli:
+  - clarify
+  - code_execution
+  - cronjob
+  - delegation
+  - file
+  - kanban
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+known_plugin_toolsets:
+  cli:
+  - spotify
+known_builtin_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - context_engine
+  - cronjob
+  - delegation
+  - discord
+  - discord_admin
+  - file
+  - homeassistant
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - spotify
+  - stt
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao
+mcp_servers:
+  playwright:
+    command: npx
+    args:
+    - -y
+    - '@playwright/mcp@0.0.79'
+    - --headless
+    - --isolated
+    - --browser
+    - chrome
+    connect_timeout: 180.0
+    tools:
+      include:
+      - browser_close
+      - browser_resize
+      - browser_console_messages
+      - browser_find
+      - browser_navigate
+      - browser_navigate_back
+      - browser_network_requests
+      - browser_network_request
+      - browser_take_screenshot
+      - browser_snapshot
+      - browser_tabs
+      - browser_wait_for
+      resources: false
+      prompts: false
+    enabled: true
+    sampling:
+      enabled: false
+  exa:
+    url: https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa
+    connect_timeout: 120.0
+    tools:
+      include:
+      - web_search_exa
+      - web_fetch_exa
+      resources: false
+      prompts: false
+    enabled: true
+    sampling:
+      enabled: false

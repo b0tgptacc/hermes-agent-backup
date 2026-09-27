@@ -1,0 +1,62 @@
+{
+  "agent-reach": {
+    "archived_at": null,
+    "created_at": "2026-08-20T07:03:36.568382+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-26T08:48:30.623487+00:00",
+    "last_viewed_at": "2026-08-26T08:48:30.614246+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 29,
+    "view_count": 29
+  },
+  "grounded-citations": {
+    "archived_at": null,
+    "created_at": "2026-08-20T07:04:46.579693+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-26T08:48:29.599647+00:00",
+    "last_viewed_at": "2026-08-26T08:48:29.590772+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 7,
+    "view_count": 7
+  },
+  "human-signals-research": {
+    "archived_at": null,
+    "created_at": "2026-08-20T07:04:47.592794+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-26T08:48:22.539417+00:00",
+    "last_viewed_at": "2026-08-26T08:48:22.530642+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 9,
+    "view_count": 9
+  },
+  "youtube-content": {
+    "archived_at": null,
+    "created_at": "2026-08-20T08:27:26.178488+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-20T08:28:25.285938+00:00",
+    "last_viewed_at": "2026-08-20T08:28:25.236406+00:00",
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 4,
+    "view_count": 4
+  }
+}

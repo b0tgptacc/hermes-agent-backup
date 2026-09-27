@@ -1,0 +1,103 @@
+model:
+  default: gpt-5.6-sol
+  provider: openai-codex
+  base_url: https://chatgpt.com/backend-api/codex
+agent:
+  max_turns: 300
+terminal:
+  backend: local
+  cwd: C:/Users/admin/social-research-workspace
+  timeout: 600
+  home_mode: profile
+  shell_init_files:
+  - C:/Users/admin/AppData/Local/hermes/profiles/socialresearcher/home/.profile
+delegation:
+  max_concurrent_children: 3
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+approvals:
+  mode: smart
+security:
+  redact_secrets: true
+_config_version: 38
+platform_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - cronjob
+  - delegation
+  - file
+  - kanban
+  - memory
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+  - web
+  - x_search
+known_plugin_toolsets:
+  cli:
+  - a2a
+  - spotify
+known_builtin_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - context_engine
+  - cronjob
+  - delegation
+  - discord
+  - discord_admin
+  - file
+  - homeassistant
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - spotify
+  - stt
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao
+reasoning_effort: high
+mcp_servers:
+  xiaohongshu:
+    url: http://127.0.0.1:18060/mcp
+    connect_timeout: 120.0
+    enabled: true
+  playwright:
+    command: npx
+    args:
+    - -y
+    - '@playwright/mcp@0.0.79'
+    - --headless
+    - --isolated
+    - --browser
+    - chrome
+    connect_timeout: 180.0
+    enabled: true
+  linkedin:
+    command: uvx
+    args:
+    - mcp-server-linkedin@4.22.0
+    - --no-auto-import
+    - --user-data-dir
+    - C:/Users/admin/AppData/Local/hermes/profiles/socialresearcher/home/.linkedin-mcp/profile
+    env:
+      HOME: C:/Users/admin/AppData/Local/hermes/profiles/socialresearcher/home
+      UV_HTTP_TIMEOUT: '300'
+    connect_timeout: 180.0
+    enabled: true

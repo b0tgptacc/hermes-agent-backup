@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.hermes/contracts/research-handoff-v1.schema.json",
+  "title": "RESEARCHER to DEVELOPER handoff v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "handoff_version", "handoff_id", "producer_profile", "problem_statement",
+    "temporal_cutoff", "observed_facts", "evidence", "recommendation",
+    "rejected_options", "unknowns", "target_hints", "security_constraints",
+    "acceptance_tests", "windows_assumptions"
+  ],
+  "properties": {
+    "handoff_version": {"const": "research-handoff/v1"},
+    "handoff_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+    "producer_profile": {"const": "researcher"},
+    "problem_statement": {"type": "string", "minLength": 1},
+    "temporal_cutoff": {"type": "string", "format": "date-time"},
+    "observed_facts": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["claim_id", "statement", "kind", "evidence_ids", "confidence"],
+        "properties": {
+          "claim_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+          "statement": {"type": "string", "minLength": 1},
+          "kind": {"enum": ["fact", "inference"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+          "confidence": {"enum": ["high", "medium", "low"]}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["source_id", "canonical_url", "publisher", "retrieved_at", "evidence_path", "content_sha256", "quotes", "limitations"],
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+          "canonical_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+          "publisher": {"type": "string", "minLength": 1},
+          "retrieved_at": {"type": "string", "format": "date-time"},
+          "evidence_path": {
+            "type": "string",
+            "description": "Normalized workspace-relative path under .hermes/handoffs/<handoff_id>/evidence/. The consumer must still resolve and containment-check it before reading.",
+            "pattern": "^\\.hermes/handoffs/[A-Za-z0-9][A-Za-z0-9._-]{0,63}/evidence/(?:[A-Za-z0-9][A-Za-z0-9._-]{0,127}/)*[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+          },
+          "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "quotes": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["text", "locator"],
+              "properties": {
+                "text": {"type": "string", "minLength": 1},
+                "locator": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "recommendation": {"type": "string", "minLength": 1},
+    "rejected_options": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["option", "reason"],
+        "properties": {"option": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+      }
+    },
+    "unknowns": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "target_hints": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["path_or_symbol", "non_authoritative"],
+        "properties": {"path_or_symbol": {"type": "string", "minLength": 1}, "non_authoritative": {"const": true}}
+      }
+    },
+    "security_constraints": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "acceptance_tests": {
+      "type": "array", "minItems": 1,
+      "description": "Untrusted proposals only. DEVELOPER must re-derive commands from the live repository and project contract before execution.",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["command", "expected", "shell", "non_authoritative"],
+        "properties": {
+          "command": {"type": "string", "minLength": 1},
+          "expected": {"type": "string", "minLength": 1},
+          "shell": {"enum": ["native-windows", "git-bash", "powershell", "cmd", "other"]},
+          "non_authoritative": {"const": true}
+        }
+      }
+    },
+    "windows_assumptions": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  }
+}

@@ -1,0 +1,137 @@
+model:
+  provider: openai-codex
+  default: gpt-6-astra
+  base_url: https://chatgpt.com/backend-api/codex
+  context_length: 1050000
+  max_tokens: 32768
+agent:
+  max_turns: 180
+  tool_use_enforcement: 'true'
+  verify_on_stop: true
+  reasoning_effort: high
+terminal:
+  cwd: C:/Users/admin/AppData/Local/hermes/profiles/astradocs/workspace
+  timeout: 300
+compression:
+  enabled: true
+  threshold: 0.24
+  target_ratio: 0.12
+display:
+  show_reasoning: false
+  language: ru
+privacy:
+  redact_pii: true
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+delegation:
+  max_concurrent_children: 3
+  max_spawn_depth: 1
+approvals:
+  mode: smart
+security:
+  redact_secrets: true
+  tirith_enabled: true
+_config_version: 38
+platform_toolsets:
+  cli:
+  - clarify
+  - code_execution
+  - computer_use
+  - delegation
+  - file
+  - memory
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+  - web
+known_plugin_toolsets:
+  cli:
+  - a2a
+  - spotify
+known_builtin_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - context_engine
+  - cronjob
+  - delegation
+  - discord
+  - discord_admin
+  - file
+  - homeassistant
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - spotify
+  - stt
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao
+astra_docs:
+  tessdata_dir: C:/Users/admin/AppData/Local/hermes/profiles/astradocs/runtime/tessdata
+mcp_servers:
+  context7:
+    url: https://mcp.context7.com/mcp
+    connect_timeout: 60.0
+    enabled: true
+    tools:
+      include:
+      - resolve-library-id
+      - query-docs
+      prompts: false
+      resources: false
+    sampling:
+      enabled: false
+  playwright:
+    command: node
+    args:
+    - C:/Users/admin/AppData/Local/hermes/profiles/astradocs/vendor/playwright-mcp/node_modules/@playwright/mcp/cli.js
+    - --headless
+    - --isolated
+    - --browser
+    - chrome
+    connect_timeout: 180.0
+    tools:
+      include:
+      - browser_close
+      - browser_resize
+      - browser_console_messages
+      - browser_handle_dialog
+      - browser_emulate_media
+      - browser_find
+      - browser_fill_form
+      - browser_press_key
+      - browser_type
+      - browser_navigate
+      - browser_navigate_back
+      - browser_network_requests
+      - browser_network_request
+      - browser_take_screenshot
+      - browser_snapshot
+      - browser_click
+      - browser_drag
+      - browser_hover
+      - browser_select_option
+      - browser_tabs
+      - browser_wait_for
+      prompts: false
+      resources: false
+    enabled: true
+    sampling:
+      enabled: false
+onboarding:
+  seen:
+    tool_progress_prompt: true

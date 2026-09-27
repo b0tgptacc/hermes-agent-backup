@@ -1,0 +1,24 @@
+name: telegram-quality-monitor
+version: 1.0.0
+manifest_version: 2
+api_version: 1
+description: "Private Telegram quality monitoring with realtime summaries and daily digests."
+author: "MASTER"
+license: MIT
+tags: [telegram, observability, quality, summaries]
+provides_hooks:
+  - pre_llm_call
+  - post_llm_call
+config_schema:
+  enabled: {type: bool, default: true, description: "Enable Telegram quality monitoring."}
+  admin_chat_id: {type: int, default: 0, description: "Numeric Telegram destination chat ID; zero falls back to TELEGRAM_HOME_CHANNEL."}
+  admin_user_id: {type: int, default: 0, description: "Numeric Telegram user ID excluded from monitoring; zero defaults to admin_chat_id."}
+  exclude_admin: {type: bool, default: true, description: "Do not monitor messages sent by the admin account."}
+  short_message_chars: {type: int, default: 1200, description: "Show requests up to this length verbatim."}
+  request_input_chars: {type: int, default: 12000, description: "Maximum request characters sent to the summarizer."}
+  response_input_chars: {type: int, default: 16000, description: "Maximum response characters sent to the summarizer."}
+  realtime_enabled: {type: bool, default: true, description: "Send a report after each completed Telegram turn."}
+  daily_digest_enabled: {type: bool, default: true, description: "Send one daily quality digest."}
+  daily_digest_hour: {type: int, default: 20, description: "Local hour (0-23) for the daily digest."}
+  retention_days: {type: int, default: 30, description: "Delete locally stored monitoring turns after this many days."}
+  redact_secrets: {type: bool, default: true, description: "Mask credential-like strings before storage and delivery."}

@@ -1,0 +1,6 @@
+name: telegram-user-progress
+description: Нетехническая индикация выполнения задач в Telegram
+events:
+  - agent:start
+  - agent:step
+  - agent:end

@@ -1,0 +1,99 @@
+model:
+  default: gpt-5.6-sol
+  provider: openai-codex
+  base_url: https://chatgpt.com/backend-api/codex
+agent:
+  max_turns: 200
+  reasoning_effort: high
+terminal:
+  backend: docker
+  cwd: /workspace
+  timeout: 300
+  docker_image: sha256:e170017a69b1d43ba4bf91f5e2528b4217ae7f2e353e00a056a9c99788305b00
+  docker_network: false
+  docker_mount_cwd_to_workspace: false
+  container_persistent: false
+  docker_persist_across_processes: false
+  docker_run_as_host_user: false
+  container_cpu: 1.0
+  container_memory: 2048
+  container_disk: 5120
+  docker_forward_env: []
+  docker_volumes:
+  - C:/Users/admin/designer-workspace:/workspace
+  docker_auto_mount_profile_data: false
+delegation:
+  max_concurrent_children: 1
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+approvals:
+  mode: smart
+security:
+  redact_secrets: true
+_config_version: 34
+plugins:
+  enabled: []
+platform_toolsets:
+  cli:
+  - clarify
+  - code_execution
+  - file
+  - skills
+  - terminal
+  - todo
+  - vision
+known_plugin_toolsets:
+  cli:
+  - spotify
+known_builtin_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - context_engine
+  - cronjob
+  - delegation
+  - discord
+  - discord_admin
+  - file
+  - homeassistant
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - spotify
+  - stt
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao
+mcp_servers:
+  figma:
+    url: https://mcp.figma.com/mcp
+    auth: oauth
+    connect_timeout: 120.0
+    tools:
+      include:
+      - whoami
+      - create_new_file
+      - use_figma
+      - get_screenshot
+      - get_metadata
+      - get_design_context
+      - get_variable_defs
+      - get_libraries
+      - search_design_system
+      - download_assets
+      - upload_assets
+      resources: false
+      prompts: false
+    enabled: true
+    sampling:
+      enabled: false

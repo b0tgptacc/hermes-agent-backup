@@ -1,0 +1,81 @@
+model:
+  default: gpt-5.6-sol
+  provider: openai-codex
+  base_url: https://chatgpt.com/backend-api/codex
+agent:
+  max_turns: 300
+  reasoning_effort: high
+terminal:
+  cwd: .
+  timeout: 300
+delegation:
+  max_concurrent_children: 3
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+approvals:
+  mode: smart
+security:
+  redact_secrets: true
+_config_version: 34
+plugins:
+  enabled: []
+mcp_servers:
+  context7:
+    command: npx
+    args:
+    - -y
+    - '@upstash/context7-mcp@4.0.2'
+    connect_timeout: 120.0
+    tools:
+      include:
+      - resolve-library-id
+      - query-docs
+      resources: false
+      prompts: false
+    enabled: true
+    sampling:
+      enabled: false
+platform_toolsets:
+  cli:
+  - clarify
+  - code_execution
+  - delegation
+  - file
+  - kanban
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+known_plugin_toolsets:
+  cli:
+  - spotify
+known_builtin_toolsets:
+  cli:
+  - bfl
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - context_engine
+  - cronjob
+  - delegation
+  - discord
+  - discord_admin
+  - file
+  - homeassistant
+  - image_gen
+  - memory
+  - session_search
+  - skills
+  - spotify
+  - stt
+  - terminal
+  - todo
+  - tts
+  - video
+  - video_gen
+  - vision
+  - web
+  - x_search
+  - yuanbao

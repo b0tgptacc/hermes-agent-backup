@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "installed": {
+    "bitrix24-rest": {
+      "source": "clawhub",
+      "identifier": "bitrix24-rest",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:ca10079126bfe7ed",
+      "install_path": "bitrix24-rest",
+      "files": [
+        "agents/openai.yaml",
+        "CHANGELOG.md",
+        "references/access.md",
+        "references/calendar.md",
+        "references/channels.md",
+        "references/chat.md",
+        "references/crm.md",
+        "references/drive.md",
+        "references/feed.md",
+        "references/files.md",
+        "references/mcp-workflow.md",
+        "references/openlines.md",
+        "references/products.md",
+        "references/projects.md",
+        "references/quotes.md",
+        "references/sites.md",
+        "references/smartprocess.md",
+        "references/tasks.md",
+        "references/timeman.md",
+        "references/troubleshooting.md",
+        "references/users.md",
+        "scripts/bitrix24_batch.py",
+        "scripts/bitrix24_call.py",
+        "scripts/bitrix24_config.py",
+        "scripts/check_webhook.py",
+        "skill-card.md",
+        "SKILL.md",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "source": "bitrix24-rest",
+        "source_url": "bitrix24-rest",
+        "bundle_hash": "sha256:ca10079126bfe7edaa6852141fcb7c367ef783db4295edd8645405f57a31516c",
+        "scanner_version": "skills-guard-v1",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [
+          {
+            "pattern_id": "unpinned_pip_install",
+            "severity": "medium",
+            "category": "supply_chain",
+            "file": "CHANGELOG.md",
+            "line": 37,
+            "match": "- Agent pip install in Setup section now requires explicit user consent",
+            "description": "pip install without version pinning"
+          }
+        ],
+        "rules": [
+          "unpinned_pip_install"
+        ],
+        "scanned_at": "2026-09-24T12:09:34.692994+00:00",
+        "summary": "bitrix24-rest: safe — 1 finding(s) in supply_chain",
+        "fresh": true
+      },
+      "installed_at": "2026-09-24T12:09:34.789059+00:00",
+      "updated_at": "2026-09-24T12:09:34.789059+00:00"
+    }
+  }
+}

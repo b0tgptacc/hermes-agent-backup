@@ -1,0 +1,11 @@
+# Never commit live credentials or restored runtime state
+.env
+**/.env
+auth.json
+**/auth.json
+*.db
+*.db-wal
+*.db-shm
+hermes-pre-restore-*/
+__pycache__/
+*.pyc
